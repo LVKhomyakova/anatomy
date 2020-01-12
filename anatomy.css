@@ -1,0 +1,252 @@
+body{
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto auto 20vh;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer";
+}
+@media screen and (max-width: 514px){
+        /* HEADER*/
+        header{
+            grid-area: header;
+    
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            grid-template-rows: 45px 45px 1fr;
+            grid-template-areas: 
+                "logo title"
+                "logo title"
+                "menu menu";
+            grid-row-gap: 10px;
+    
+            padding: 10px;
+            background-color: teal;
+        }
+        .header__logo{
+            grid-area: logo;
+    
+            text-align: center;
+            line-height: 100px;
+    
+            background-color: lightgrey;
+            text-shadow: 2px 2px 3px black;
+            box-shadow: 2px 2px 3px black;
+        }
+        .header__title{
+            grid-area: title;
+    
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.8em;
+            color: white;
+            text-shadow: 2px 2px 3px black;
+            /* box-shadow: 2px 2px 3px black; */
+        }
+        #menu{
+            display: none;
+        }
+        label{
+            display: block;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 22px;
+            background-color: seagreen;
+            box-shadow: 2px 2px 3px black;
+            cursor: pointer;
+        }
+        label:checked+.header-menu{
+            display: block;
+        }
+
+        .header-menu{
+            display: none;
+        }
+}
+@media screen and (min-width: 515px){
+
+    label{
+        display: none;
+    }
+    /* HEADER*/
+    header{
+        grid-area: header;
+
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        grid-template-rows: 45px 45px 1fr;
+        grid-template-areas: 
+            "logo title"
+            "logo title"
+            "menu menu";
+        grid-row-gap: 10px;
+
+        padding: 10px;
+        background-color: teal;
+    }
+    .header__logo{
+        grid-area: logo;
+
+        text-align: center;
+        line-height: 100px;
+
+        background-color: lightgrey;
+        text-shadow: 2px 2px 3px black;
+        box-shadow: 2px 2px 3px black;
+    }
+    .header__title{
+        grid-area: title;
+
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 2.8em;
+        color: white;
+        text-shadow: 2px 2px 3px black;
+        /* box-shadow: 2px 2px 3px black; */
+    }
+    .header__menu{
+        grid-area: menu;
+    }
+    /*МЕНЮ ШАПКИ*/
+    .header-menu{
+        display: flex;
+        justify-content: flex-end;
+
+        margin: 0px;
+        padding: 0;
+    }
+    .header-menu__item{
+        display: flex;
+        align-items: center;
+        
+        height: 40px;
+        padding: 5px 10px;
+        margin-left: 10px;
+
+        color: white;
+        text-align: center;
+        text-shadow: 2px 2px 3px black;
+        box-shadow: 2px 2px 3px black;
+        background-color: seagreen;
+    }
+}
+    /*MAIN CONTENT*/
+    .main{
+        grid-area: content;
+        
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, auto));        
+        grid-gap: 10px;
+
+        padding: 10px;
+        background-color: darkgrey;
+    }
+    .card{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(150px, auto));
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas:
+            "title title"
+            "description image"
+            "button image";
+        grid-gap: 10px;
+
+        padding: 10px;
+        background-color: lightgreen;
+    }
+    .card__title{
+        grid-area: title;
+
+        margin: 0;
+        text-align: center;
+        text-decoration: underline;
+
+    }
+    .card__description{
+        grid-area: description;
+        justify-self: center;
+        align-self: stretch;
+
+        padding: 10px;
+        text-indent: 1em;
+        background-color: seagreen;
+    }
+    .card__img{
+        grid-area: image;
+        justify-self: center;
+        align-self: center;
+
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: teal;
+    }
+    .card__button{
+        justify-self: center;
+
+        cursor: pointer;
+        width: 100px;
+        height: 30px;
+        box-shadow: 2px 2px 3px black;
+    }
+
+    /*FOOTER*/
+    footer{
+        grid-area: footer;
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: darkkhaki;
+        text-align: center;
+    } 
+
+
+
+/*
+aside{
+    float: left;
+    width: 20vw;
+    min-height: 100px;
+    background-color: rosybrown;
+}
+section{
+    width: 100%;
+    height: 600px;
+    border-left: 20vw solid blanchedalmond;
+    min-height: 100px;
+    background-color: #3d4b58;
+}
+.skeleton{
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-image: url(img/skeleton.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    outline: 1px solid red;
+    z-index: 1;
+}
+.leg{
+    position: absolute;
+    top: 370px;
+    left: 432px;
+    width: 55px;
+    height: 155px;
+    background-image: url(img/leg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    animation: move-leg 1s ease-in 1s infinite alternate both;
+    transform-origin: 30% 0% 0;
+    z-index:0;
+}
+
+@keyframes move-leg{
+    from{transform: rotate(-20deg);}
+    to{transform: rotate(20deg);}
+}
+
